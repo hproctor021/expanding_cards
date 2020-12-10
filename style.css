@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  /* creates flex boxes in a row, if wanted them stacked 
+  on one another, use: flex-direction: column; */
+  width: 90vw;
+}
+
+.panel {
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Only shows background image once, rather than repeating if 
+  the screen is more expanded */
+  height: 80vh;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  /* Shows cursor on images when hoovering over them */
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+  /* puts a transition effect on the flex at .7 seconds speed
+  with an ease-in effect */
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 5;
+}
+/* When panel is active this sets the expanded size to 5 */
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.5s;
+}
+/* When the panel is active, change text opacity to 1 (to be seen) 
+added an ease-in effect on the transition at .3 seconds and a delay of .5 seconds
+of the text from not showing to showing*/
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+  /* media query on .container to say if 
+  browser is smaller than 480px THEN apply 
+  these changes vv */
+
+  .panel:nth-of-type(5),
+  .panel:nth-of-type(6),
+  .panel:nth-of-type(7) {
+    display: none;
+  }
+}
+/* Which will hide the 5th, 6th & 7th card */
